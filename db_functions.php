@@ -6,36 +6,39 @@
 /* ==============================================================
 */
 
+function connect_db() {
 $DB_HOST = 'localhost';
 $DB_USER = 'slim';
 $DB_PASS = 'slim';
 $DB_INST = 'blog';
 
-$blog_db = new mysqli($DB_HOST, $DB_USER, $DB_PASS, $DB_INST);
+$DB_CONN = new mysqli($DB_HOST, $DB_USER, $DB_PASS, $DB_INST);
 
-if($blog_db->connect_errno > 0) {
-    die('Unable to connect to database [' . $blog_db->connect_error . ']');
+if (mysqli_connect_errno()) {
+    echo "Connection Failed: " . mysqli_connect_errno();
+    exit();
 }
 
-$sql = <<<SQL
-    SELECT *
-    FROM `articles`
-SQL;
-
-if (!$result = $blog_db->query($sql)) {
-    die ('There was an error running the query[' . $blog_db->error . ']');
+return $DB_CONN;
 }
 
-while ($row = $result->fetch_assoc()) {
-    echo '============================' . '<br />';
-    echo $row['title'] . '<br />';
-    echo $row['post_date'] . '<br />';
-    echo $row['article'] . '<br />';
-    echo $row['author'] . '<br />';
-    echo '============================' . '<br />';
+function get_posts($DB_CONN) {
+    $sql = 'select * from articles order by id desc';
+    $results = $DB_CONN->query($sql);
     
+    while ($row = $results->fetch_assoc()) {
+        $records[] = $row;
+    }
+    
+    mysqli_close($DB_CONN);
+    return $records;
 }
 
-$result->free();
+function update_post($DB_CONN) {
+    //stub
+}
 
+function delete_post($DB_CONN) {
+    //stubb
+}
 ?>
