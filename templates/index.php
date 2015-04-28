@@ -13,12 +13,16 @@
             <p>
                 This is a Slim powered blog that is being used a proof of concept, don't replace wordpress with it.
             </p>
+            
+            
+            
             <?php
                 foreach ($this->data['articles'] as $post){
                     echo '<section id='. $post['id'] . '>';
                     echo '<h2>' . $post['title'] . '</h1>';
                     echo '<p>' . $post['article'] . '</p>';
                     echo '<p>' . $post['author'] . '</p>';
+                    echo '<a href=/update/' . $post['id'] . 
                     echo '</section>';
                 }
             ?>

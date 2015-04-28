@@ -34,11 +34,27 @@ function get_posts($DB_CONN) {
     return $records;
 }
 
-function update_post($DB_CONN) {
-    //stub
+function new_post($DB_CONN, $p_title, $p_content, $p_author) {
+    $p_date = date("Y-m-d H:i:s");
+    $sql = $DB_CONN->prepare("insert into articles (post_date, title, article, author) values (?,?,?,?)");
+    $sql->bind_param("ssss", $p_date, $p_title, $p_content, $p_author);
+    $sql->execute;
+    mysqli_close($DB_CONN);
 }
 
-function delete_post($DB_CONN) {
-    //stubb
+function update_post($DB_CONN, $p_id, $p_title, $p_content, $p_author) {
+    $p_date = date("Y-m-d H:i:s");
+    $sql = $DB_CONN->prepare("update articles set post_date = ?, title = ?, article = ?, author = ? where id = ?");
+    $sql->bind_param("ssssi", $p_date, $p_title, $p_content, $p_author, $p_id);
+    $sql->execute;
+    mysqli_close($DB_CONN);
+                             
+}
+
+function delete_post($DB_CONN, $p_id) {
+    $sql = $DB_CONN->prepare("delete from articles where id = ?");
+    $sql->bind_param("i", $p_id);
+    $sql->execute;
+    mysqli_close($DB_CONN);
 }
 ?>
