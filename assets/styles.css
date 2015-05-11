@@ -9,7 +9,7 @@ fieldset,form,label,legend,
 table,caption,tbody,tfoot,thead,tr,th,td,
 article,aside,canvas,details,figcaption,figure,
 footer,header,hgroup,menu,nav,section,summary,
-time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent;}               
+time,mark,audio,video{margin:0 0 10px 0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent;}               
 body{line-height:1;}
 article,aside,details,figcaption,figure,
 footer,header,hgroup,menu,nav,section{display:block;}
@@ -38,3 +38,5 @@ pre{background:#EEE;border:1px solid #DDD;border-radius:4px;-moz-border-radius:4
 pre code{background:transparent;border:none;padding:0;}
 a{color:#70a23e;}
 header{padding: 30px 0;text-align:center;}
+.hidden {display: none;}
+#new_post {text-align: center;}
