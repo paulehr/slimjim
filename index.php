@@ -20,13 +20,20 @@ $app->get('/', function () use ($app) {
 
 // add a new blog post action
 $app->post('/add', function () use ($app){
-        echo 'This is a Post route';
+        $db = connect_db();
+		$title = $this->app->request->post('title');
+		$post = $this->app->request->post('post');
+		new_post($db, $title, $post, "Paul");
     }
 );
 
 // update an exsisting blog post
 $app->put('/update/:id', function ($id) use ($app) {
-        echo 'This is a PUT route';
+        $db = connect_db();
+		$id = $this->app->request->put('id');
+		$title = $this->app->request->put('title');
+		$post = $this->app->request->put('post');
+		update_post($db, $id, $title, $post, 'Paul');
     }
 );
 
