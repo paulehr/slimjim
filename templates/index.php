@@ -16,10 +16,10 @@
             
             <section id="new_post">
                 <button id="new_post" class="toggle">New Post</button>
-                <form class="hidden">
+                <form class="hidden" id="add_post">
                     <input type="text" name="title" value="New Title"><br>
                     <textarea name="post" rows=10 cols=30>New Post</textarea><br>
-                    <button>Post</button>
+                    <input type="submit" value="Post" />
                 </form>
             </section>
             

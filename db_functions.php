@@ -38,7 +38,7 @@ function new_post($DB_CONN, $p_title, $p_content, $p_author) {
     $p_date = date("Y-m-d H:i:s");
     $sql = $DB_CONN->prepare("insert into articles (post_date, title, article, author) values (?,?,?,?)");
     $sql->bind_param("ssss", $p_date, $p_title, $p_content, $p_author);
-    $sql->execute;
+    $sql->execute();
     mysqli_close($DB_CONN);
 }
 
@@ -46,7 +46,7 @@ function update_post($DB_CONN, $p_id, $p_title, $p_content, $p_author) {
     $p_date = date("Y-m-d H:i:s");
     $sql = $DB_CONN->prepare("update articles set post_date = ?, title = ?, article = ?, author = ? where id = ?");
     $sql->bind_param("ssssi", $p_date, $p_title, $p_content, $p_author, $p_id);
-    $sql->execute;
+    $sql->execute();
     mysqli_close($DB_CONN);
                              
 }
@@ -54,7 +54,7 @@ function update_post($DB_CONN, $p_id, $p_title, $p_content, $p_author) {
 function delete_post($DB_CONN, $p_id) {
     $sql = $DB_CONN->prepare("delete from articles where id = ?");
     $sql->bind_param("i", $p_id);
-    $sql->execute;
+    $sql->execute();
     mysqli_close($DB_CONN);
 }
 ?>

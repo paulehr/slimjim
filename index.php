@@ -21,8 +21,8 @@ $app->get('/', function () use ($app) {
 // add a new blog post action
 $app->post('/add', function () use ($app){
         $db = connect_db();
-		$title = $this->app->request->post('title');
-		$post = $this->app->request->post('post');
+		$title = $app->request->post('title');
+		$post = $app->request->post('post');
 		new_post($db, $title, $post, "Paul");
     }
 );
