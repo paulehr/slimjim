@@ -30,16 +30,16 @@ $app->post('/add', function () use ($app){
 // update an exsisting blog post
 $app->put('/update/:id', function ($id) use ($app) {
         $db = connect_db();
-		$id = $this->app->request->put('id');
-		$title = $this->app->request->put('title');
-		$post = $this->app->request->put('post');
+		$title = $app->request->put('title');
+		$post = $app->request->put('post');
 		update_post($db, $id, $title, $post, 'Paul');
     }
 );
 
 // Delete the selected blog post
 $app->delete('/delete/:id', function ($id) use ($app) {
-        echo 'This is a DELETE route';
+        $db = connect_db();
+		delete_post($db, $id);
     }
 );
 

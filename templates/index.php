@@ -28,14 +28,14 @@
             <?php
                 foreach ($this->data['articles'] as $post){
                     echo '<article id='. $post['id'] . '>';
-                    echo '<h2>' . $post['title'] . '</h1>';
+                    echo '<h2>' . $post['title'] . '</h2>';
                     echo '<p>' . $post['article'] . '</p>';
                     echo '<button class=delete>Delete</button>';
                     echo '<button class="toggle edit">Edit</button>';
-                    echo '<form id=' . $post['id']  .' '. 'class=hidden>';
+                    echo '<form class="hidden update">';
                     echo '<input type=text name=title value="Update Title"><br>';
                     echo '<textarea name=post rows=10 cols=30>Update Post</textarea><br>';
-                    echo '<button class=update>Update</button>';
+                    echo '<input type="submit" value="Update">';
                     echo '</form>';
                     echo '</article>';
                 }
