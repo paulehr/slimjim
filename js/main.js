@@ -6,7 +6,7 @@ var request;
 
 // controls hiding/unhiding new post/update post forms 
 $(".toggle").click(function(){ 
-    $(this).siblings('.hidden').toggle();
+    $(this).siblings('.sj_hidden').toggle();
 });
 
 //post new blog post 
