@@ -20,12 +20,32 @@
                     </p>
             
                     <section id="new_post">
-                        <button id="new_post" class="toggle btn btn-success btn-lg">New Post</button>
-                        <form class="sj_hidden form-horizontal" id="add_post">
+                        <button id="new_post" class="toggle btn btn-success btn-lg" data-toggle="modal" data-target="#post_modal">New Post</button>
+                          <div class="modal fade" id="post_modal" role="dialog">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class=modal-title">Add New Post</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form class="form-horizontal" id="add_post">
+                                            <input type="text" class="form-control" name="title" placeholder="New Title"><br>
+                                            <textarea name="post" class="form-control" rows=10 cols=30 placeholder="New Post"></textarea><br>
+                                            <input class="btn"type="submit" value="Post" />
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn" data-dismiss="modal">Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--<form class="sj_hidden form-horizontal" id="add_post">
                             <input type="text" class="form-control name="title" placeholder="New Title"><br>
                             <textarea name="post" class="form-control" rows=10 cols=30 placeholder="New Post"></textarea><br>
                             <input class="btn"type="submit" value="Post" />
-                        </form>
+                        </form>-->
                     </section>
                 
             
