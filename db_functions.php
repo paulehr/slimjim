@@ -2,7 +2,7 @@
 /* ==============================================================
 /*
 /* db_fucntions.php - library to access and operate on mysql db
-/* 
+/*
 /* ==============================================================
 */
 
@@ -25,30 +25,30 @@ return $DB_CONN;
 function get_posts($DB_CONN) {
     $sql = 'select * from articles order by id desc';
     $results = $DB_CONN->query($sql);
-    
+
     while ($row = $results->fetch_assoc()) {
         $records[] = $row;
     }
-    
+
     mysqli_close($DB_CONN);
     return $records;
 }
 
-function new_post($DB_CONN, $p_title, $p_content, $p_author) {
+function new_post($DB_CONN, $p_title, $p_content) {
     $p_date = date("Y-m-d H:i:s");
-    $sql = $DB_CONN->prepare("insert into articles (post_date, title, article, author) values (?,?,?,?)");
-    $sql->bind_param("ssss", $p_date, $p_title, $p_content, $p_author);
+    $sql = $DB_CONN->prepare("insert into articles (post_date, title, article) values (?,?,?)");
+    $sql->bind_param("sss", $p_date, $p_title, $p_content);
     $sql->execute();
     mysqli_close($DB_CONN);
 }
 
-function update_post($DB_CONN, $p_id, $p_title, $p_content, $p_author) {
+function update_post($DB_CONN, $p_id, $p_title, $p_content) {
     $p_date = date("Y-m-d H:i:s");
-    $sql = $DB_CONN->prepare("update articles set post_date = ?, title = ?, article = ?, author = ? where id = ?");
-    $sql->bind_param("ssssi", $p_date, $p_title, $p_content, $p_author, $p_id);
+    $sql = $DB_CONN->prepare("update articles set post_date = ?, title = ?, article = ? where id = ?");
+    $sql->bind_param("sssi", $p_date, $p_title, $p_content, $p_id);
     $sql->execute();
     mysqli_close($DB_CONN);
-                             
+
 }
 
 function delete_post($DB_CONN, $p_id) {

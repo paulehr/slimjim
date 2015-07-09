@@ -12,13 +12,13 @@
             <div class="container">
 
                     <header>
-                        <h1 class="text-center"> The SlimJim Blog </h1> 
+                        <h1 class="text-center"> The SlimJim Blog </h1>
                     </header>
                     <h2 class="text-center">Welcome to my Proof of Concept Blog</h2>
                     <p class="text-center">
                         This is a Slim Framework powered blog that is being used as a proof of concept, don't replace wordpress with it.
                     </p>
-            
+
                     <section id="new_post">
                         <button id="new_post" class="toggle btn btn-success btn-lg" data-toggle="modal" data-target="#post_modal">New Post</button>
                           <div class="modal fade" id="post_modal" role="dialog">
@@ -47,10 +47,10 @@
                             <input class="btn"type="submit" value="Post" />
                         </form>-->
                     </section>
-                
-            
+
+
             <section id="posts">
-            
+
             <?php
                 foreach ($this->data['articles'] as $post){
                     echo '<article id='. $post['id'] . '>';
@@ -66,13 +66,13 @@
                     echo '</article>';
                 }
             ?>
-           
+
             </section>
             </div>
-            
+
             <script type='text/javascript' src="../js/jquery-1.11.3.js"></script>
             <script src="js/bootstrap.min.js"></script>
             <script type='text/javascript' src="../js/main.js"></script>
         </body>
-        
+
     </html>
