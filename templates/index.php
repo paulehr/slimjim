@@ -52,18 +52,26 @@
             <section id="posts">
 
             <?php
+
+            function build_post ($post_id, $post_title, $post_article) {
+              echo <<<POST
+                <article id=$post_id>
+                <h3>$post_title</h3>
+                <p>$post_article</p>
+                <button class="delete btn btn-xs btn-danger">Delete</button>
+                <button class="toggle edit btn btn-xs btn-primary">Edit</button>
+                <form class="sj_hidden update">
+                <input type=text class="form-control" name=title placeholder="Update Title"><br>
+                <textarea name=post class="form-control" rows=10 cols=30 placeholder="Update Post"></textarea><br>
+                <input type="submit" value="Update">
+                </form>
+                </article>
+POST;
+}
+
+
                 foreach ($this->data['articles'] as $post){
-                    echo '<article id='. $post['id'] . '>';
-                    echo '<h3>' . $post['title'] . '</h3>';
-                    echo '<p>' . $post['article'] . '</p>';
-                    echo '<button class="delete btn btn-xs btn-danger">Delete</button>';
-                    echo '<button class="toggle edit btn btn-xs btn-primary">Edit</button>';
-                    echo '<form class="sj_hidden update">';
-                    echo '<input type=text class="form-control" name=title placeholder="Update Title"><br>';
-                    echo '<textarea name=post class="form-control" rows=10 cols=30 placeholder="Update Post"></textarea><br>';
-                    echo '<input type="submit" value="Update">';
-                    echo '</form>';
-                    echo '</article>';
+                  build_post($post['id'],$post['title'], $post['article']);
                 }
             ?>
 
