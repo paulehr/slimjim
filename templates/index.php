@@ -26,7 +26,7 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class=modal-title">Add New Post</h4>
+                                        <h4 class="modal-title">Add New Post</h4>
                                     </div>
                                     <div class="modal-body">
                                         <form class="form-horizontal" id="add_post">
@@ -41,11 +41,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!--<form class="sj_hidden form-horizontal" id="add_post">
-                            <input type="text" class="form-control name="title" placeholder="New Title"><br>
-                            <textarea name="post" class="form-control" rows=10 cols=30 placeholder="New Post"></textarea><br>
-                            <input class="btn"type="submit" value="Post" />
-                        </form>-->
                     </section>
 
 
@@ -59,12 +54,32 @@
                 <h3>$post_title</h3>
                 <p>$post_article</p>
                 <button class="delete btn btn-xs btn-danger">Delete</button>
-                <button class="toggle edit btn btn-xs btn-primary">Edit</button>
-                <form class="sj_hidden update">
+                <button class="toggle edit btn btn-xs btn-primary" data-toggle="modal" data-target="#edit_modal">Edit</button>
+                  <div class="modal fade" id="edit_modal" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Edit Post</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form class="form-horizontal update">
+                                    <input type="text" class="form-control" name="title" placeholder="$post_title"><br>
+                                    <textarea name="post" class="form-control" rows=10 cols=30 placeholder="$post_article"></textarea><br>
+                                    <input class="btn" type="submit" value="Update" />
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn" data-dismiss="modal">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <form class="sj_hidden update">
                 <input type=text class="form-control" name=title placeholder="Update Title"><br>
                 <textarea name=post class="form-control" rows=10 cols=30 placeholder="Update Post"></textarea><br>
                 <input type="submit" value="Update">
-                </form>
+                </form> -->
                 </article>
 POST;
 }
